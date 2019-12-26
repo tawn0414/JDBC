@@ -26,11 +26,15 @@ public class PreparedUpdateTest {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sql = "update tb_board set id = ? where boardnum = ?";
+		StringBuffer sql = new StringBuffer();
+		sql.append("update tb_board ");
+		sql.append("set id = ? ");
+		sql.append("where boardnum = ? ");
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, user, password);
-			stmt = con.prepareStatement(sql);
+			stmt = con.prepareStatement(sql.toString());
 			
 			stmt.setString(1, id);
 			stmt.setInt(2, boardnum);

@@ -163,4 +163,8 @@ JDBC
    ResultSet, Statement, Connection모두 반납해야한다.
    close메소드를 이용해서 자원해제.
      가장 마지막에 만들어진 객체부터 해제해야됨.
+     
+     
+     
+** 테이블명DAO: Data access object *** 
 	 
