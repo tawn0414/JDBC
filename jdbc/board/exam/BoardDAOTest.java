@@ -36,7 +36,7 @@ public class BoardDAOTest {
 		
 		//update
 		Scanner key = new Scanner(System.in);
-		BoardDAO dao = new BoardDAO();
+		BoardDAOImpl dao = new BoardDAOImpl();
 		System.out.print("아이디: ");
 		String id = key.next();
 		System.out.print("수정할 번호: ");
