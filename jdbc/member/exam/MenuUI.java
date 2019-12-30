@@ -1,8 +1,7 @@
 package jdbc.member.exam;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import jdbc.board.exam.BoardDAO;
-import jdbc.board.exam.BoardDAOImpl;
 import jdbc.board.exam.BoardDTO;
 
 public class MenuUI {
@@ -59,12 +58,50 @@ public class MenuUI {
 		System.out.print("주소:");
 		String addr = key.next();
 		//여기에서 EmpDAO의 메소드를 호출하세요
+		ArrayList<MemberDTO> mem = dao.findByAddr(addr);
+		int size = mem.size();
+		for(int i = 0; i<size; i++) {
+			MemberDTO board = mem.get(i);
+			System.out.print("id:"+board.getId()+"\t");
+			System.out.print("pass:"+board.getPass()+"\t");
+			System.out.print("name:"+board.getName()+"\t");
+			System.out.print("addr:"+board.getAddr()+"\t");
+			System.out.print("deptno:"+board.getDeptno()+"\t");
+			System.out.print("hiredate:"+board.getHiredate()+"\t");
+			System.out.println("point:"+board.getPoint());
+		}
 	}
 	
 	
 	public void selectMenu(){
 		System.out.println("*******사원조회********");
 		//여기에서 EmpDAO의 메소드를 호출하세요 - 전체사원조회
+		ArrayList<MemberDTO> boardlist = dao.memberList();
+		int size = boardlist.size();
+		for(int i = 0; i<size;i++) {
+			MemberDTO board = boardlist.get(i);
+			System.out.print("id:"+board.getId()+"\t");
+			System.out.print("pass:"+board.getPass()+"\t");
+			System.out.print("name:"+board.getName()+"\t");
+			System.out.print("addr:"+board.getAddr()+"\t");
+			System.out.print("deptno:"+board.getDeptno()+"\t");
+			System.out.print("hiredate:"+board.getHiredate()+"\t");
+			System.out.println("point:"+board.getPoint());
+		}
+	}
+	
+	public void loginMenu() {
+		System.out.println("*******로그인*********");
+		System.out.print("아이디:");
+		String id = key.next();
+		System.out.print("비밀번호:");
+		String pass = key.next();
+		MemberDTO result = dao.login(id, pass);
+		if(result == null) {
+			System.out.println("조회된 데이터가 없습니다.");
+		}else {
+			System.out.println("로그인 성공");
+		}
 	}
 }
 

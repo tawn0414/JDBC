@@ -16,7 +16,7 @@ JDBC
 1. 오라클 드라이버 로딩.
 	=> JVM에서 드라이버내의 API를 접근해서 사용할 수 있도록 Class클래스의 forName메소드를 이용해서 핵심 클래스를 로딩하는 작업
 	 <문법>
-	 class.forName("DBMS드라이버의 핵심클래스명")
+	 Class.forName("DBMS드라이버의 핵심클래스명")
 	 				---------------------
 	 				패키지 명까지 명시해야됨.
 	 				오라클의 경우:oracle.jdbc.driver.OracleDriver
@@ -116,7 +116,7 @@ JDBC
       					2차원 표를 자바에서 사용할 수 있도록 모델링해 놓은 객체가 
       					ResultSet이고 executeQuery메소드는 결과로 ResultSet객체를
       					 반환하므로 이 객체를 반환받을 수 있도록 정의한다.
-         ResultSet rs = stmt.executeQuery("sql문");
+         ResultSet rs = stmt.executeQuery("sql문"); -> ResultSet은 DBMS와만 연동을 한다.
               
    2) PreparedStatement이용
 	 

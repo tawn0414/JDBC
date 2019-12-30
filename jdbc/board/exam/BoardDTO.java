@@ -13,6 +13,12 @@ public class BoardDTO {
 	public BoardDTO() {
 		
 	}
+	//read¿ë
+	public BoardDTO(int boardNum) {
+		super();
+		this.boardNum = boardNum;
+	}
+
 	//insert¿ë
 	public BoardDTO(String id, String title, String content) {
 		super();

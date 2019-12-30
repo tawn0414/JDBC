@@ -14,6 +14,18 @@ public class MemberDTO {//data transfer object: 데이터를 설정할 수 있는 객체.
 	public MemberDTO() {
 		
 	}
+	//memberlist용
+	public MemberDTO(String id, String pass, String name, String addr, String deptno, Date hiredate, int point) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.addr = addr;
+		this.deptno = deptno;
+		this.hiredate = hiredate;
+		this.point = point;
+	}
+
 	//insert용
 	public MemberDTO(String id, String pass, String name, String addr, String deptno) {
 		super();
